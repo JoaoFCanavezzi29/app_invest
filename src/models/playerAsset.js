@@ -9,7 +9,9 @@ const PlayerAsset = (sequelize, DataTypes) => {
       references: {
         model: 'Players',
         key: 'id'
-      }
+      },
+      onDelete: 'CASCADE',  
+      onUpdate: 'CASCADE'   
     },
     asset_id: {
       type: DataTypes.INTEGER,
@@ -17,7 +19,9 @@ const PlayerAsset = (sequelize, DataTypes) => {
       references: {
         model: 'Assets',
         key: 'id'
-      }
+      },
+      onDelete: 'CASCADE', 
+      onUpdate: 'CASCADE'  
     },
     amount: {
       type: DataTypes.INTEGER

@@ -70,6 +70,11 @@ Coloque as credenciais para acessar o seu banco de dados.
 
 Caso não esteja no modo de teste, utilize: node .\src\app.js
 
+# Login do Admin Padrão
+
+e-mail: admin@admin.com
+senha: admin
+
 ## Documentação da API
 A documentação da API está disponível através do Swagger. Para acessá-la, vá até a URL:
 

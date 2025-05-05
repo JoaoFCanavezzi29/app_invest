@@ -1,7 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-// Definindo o modelo Event
 const EventAssetImpact = (sequelize, DataTypes) => {
     const Model = sequelize.define('EventAssetImpact', {
       impact: {
@@ -15,11 +14,21 @@ const EventAssetImpact = (sequelize, DataTypes) => {
     });
   
     Model.associate = models => {
-      Model.belongsTo(models.Event, { foreignKey: 'event_id' });
-      Model.belongsTo(models.Asset, { foreignKey: 'asset_id', as: 'asset' }); // <<< Aqui definimos o alias corretamente
+      Model.belongsTo(models.Event, { 
+        foreignKey: 'event_id',
+        onDelete: 'CASCADE',  
+        onUpdate: 'CASCADE'
+      });
+      
+      Model.belongsTo(models.Asset, { 
+        foreignKey: 'asset_id', 
+        as: 'asset',
+        onDelete: 'CASCADE',  // Adicionado aqui
+        onUpdate: 'CASCADE'   // Adicionado aqui
+      });
     };
   
     return Model;
-  };
+};
   
-  module.exports = EventAssetImpact;
+module.exports = EventAssetImpact;
