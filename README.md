@@ -60,11 +60,13 @@ A motivação por trás do projeto é dar uma experiência mais rica para as pes
 ### 2. Instalar as Dependências.
 npm install
 
+npm install statuses
+
 O servidor estará rodando em `http://localhost:3000`
 
 ### 3. Preencha .env
 
-Coloque as credenciais para acessar o seu banco de dados.
+Coloque as credenciais para acessar o seu banco de dados. E garanta que o MySQL naquela porta está em execução
 
 ### 4. Rodando o projeto
 
