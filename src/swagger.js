@@ -10,7 +10,7 @@ const options = {
       description: 'Documentação da API usando Swagger',
     },
     servers: [
-      { url: 'http://localhost:3000' }
+      { url: 'https://appinvest-production.up.railway.app/' }
     ],
     components: {
       securitySchemes: {
