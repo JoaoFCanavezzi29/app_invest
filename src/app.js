@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');  // Adicione a importação do cors
 const app = express();
 require('dotenv').config();
 
@@ -12,6 +13,16 @@ const authMiddleware = require('./middlewares/authMiddleware');
 const authenticateToken = require('./middlewares/authenticateToken');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger');
+
+// Configuração do CORS
+const corsOptions = {
+  origin: '*', // Permite todas as origens (pode ser alterado para domínios específicos)
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Permite apenas métodos específicos (opcional)
+  allowedHeaders: ['Content-Type', 'Authorization'], // Permite apenas esses cabeçalhos (opcional)
+};
+
+// Use o CORS antes de definir as rotas
+app.use(cors(corsOptions));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.get('/swagger.json', (req, res) => {
@@ -33,7 +44,6 @@ app.use('/api/assets', authMiddleware, authenticateToken, assetRoutes);
 app.use('/api/player', authMiddleware, authenticateToken, playerRoutes);
 
 // Testa conexão com o banco antes de iniciar o servidor
-
 if (process.env.NODE_ENV !== 'test') {
   db.sequelize.authenticate()
     .then(() => {

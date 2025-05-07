@@ -17,6 +17,7 @@ A motivação por trás do projeto é dar uma experiência mais rica para as pes
 - cross-env (para testes)
 - supertest (para testes)
 - sequelize (para utilizar ORM)
+- Cors (para Cross-Origin Resource Sharing)
 
 ## Justificativa das Tecnologias
 
@@ -61,6 +62,8 @@ A motivação por trás do projeto é dar uma experiência mais rica para as pes
 npm install
 
 npm install statuses
+
+npm install cors
 
 O servidor estará rodando em `http://localhost:3000`
 

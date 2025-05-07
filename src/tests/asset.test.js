@@ -74,7 +74,7 @@ beforeAll(async () => {
 describe('Rotas /api/assets', () => {
   it('GET /api/assets - Deve retornar todos os ativos', async () => {
     const res = await request(app)
-      .get('/api/assets')
+      .get('appinvest-production.up.railway.app/api/assets')
       .set('Authorization', `Bearer ${token}`);
 
     expect(res.status).toBe(200);
@@ -83,7 +83,7 @@ describe('Rotas /api/assets', () => {
 
   it('GET /api/assets/{id} - Deve retornar o ativo pelo ID', async () => {
     const res = await request(app)
-      .get(`/api/assets/${createdAssetIds[0]}`)
+      .get(`appinvest-production.up.railway.app/api/assets/${createdAssetIds[0]}`)
       .set('Authorization', `Bearer ${token}`);
 
     expect(res.status).toBe(200);
@@ -92,7 +92,7 @@ describe('Rotas /api/assets', () => {
 
   it('GET /api/assets/{id} - Deve retornar 404 se o ativo não for encontrado', async () => {
     const res = await request(app)
-      .get('/api/assets/99999')
+      .get('appinvest-production.up.railway.app/api/assets/99999')
       .set('Authorization', `Bearer ${token}`);
 
     expect(res.status).toBe(404);
@@ -101,7 +101,7 @@ describe('Rotas /api/assets', () => {
 
   it('PUT /api/assets/{id} - Deve atualizar um ativo', async () => {
     const res = await request(app)
-      .put(`/api/assets/${createdAssetIds[0]}`)
+      .put(`appinvest-production.up.railway.app/api/assets/${createdAssetIds[0]}`)
       .set('Authorization', `Bearer ${token}`)
       .send({
         name: 'UpdatedTestAsset',
@@ -115,7 +115,7 @@ describe('Rotas /api/assets', () => {
 
   it('POST /api/assets - Deve registrar um novo ativo', async () => {
     const res = await request(app)
-      .post('/api/assets')
+      .post('appinvest-production.up.railway.app/api/assets')
       .set('Authorization', `Bearer ${token}`)
       .send({
         name: 'AnotherTestAsset',
@@ -133,7 +133,7 @@ describe('Rotas /api/assets', () => {
 
   it('POST /api/assets/player-assets/purchase - Deve comprar um ativo para o jogador', async () => {
     const res = await request(app)
-      .post('/api/assets/player-assets/purchase')
+      .post('appinvest-production.up.railway.app/api/assets/player-assets/purchase')
       .set('Authorization', `Bearer ${token}`)
       .send({
         asset_id: createdAssetIds[0],
@@ -146,7 +146,7 @@ describe('Rotas /api/assets', () => {
 
   it('POST /api/assets/player-assets/sell - Deve vender um ativo do jogador', async () => {
     const res = await request(app)
-      .post('/api/assets/player-assets/sell')
+      .post('appinvest-production.up.railway.app/api/assets/player-assets/sell')
       .set('Authorization', `Bearer ${token}`)
       .send({
         asset_id: createdAssetIds[0],
@@ -159,7 +159,7 @@ describe('Rotas /api/assets', () => {
 
   it('GET /api/assets/player-assets - Deve retornar todos os ativos de um jogador', async () => {
     const res = await request(app)
-      .get('/api/assets/player-assets')
+      .get('appinvest-production.up.railway.app/api/assets/player-assets')
       .set('Authorization', `Bearer ${token}`);
 
     expect(res.status).toBe(200);
@@ -169,13 +169,13 @@ describe('Rotas /api/assets', () => {
   it('DELETE /api/assets/{id} - Deve deletar um ativo', async () => {
     const assetId = createdAssetIds.pop(); // remove o último e deleta
     const res = await request(app)
-      .delete(`/api/assets/${assetId}`)
+      .delete(`appinvest-production.up.railway.app/api/assets/${assetId}`)
       .set('Authorization', `Bearer ${token}`);
 
     expect(res.status).toBe(204);
 
     const getRes = await request(app)
-      .get(`/api/assets/${assetId}`)
+      .get(`appinvest-production.up.railway.app/api/assets/${assetId}`)
       .set('Authorization', `Bearer ${token}`);
 
     expect(getRes.status).toBe(404);
