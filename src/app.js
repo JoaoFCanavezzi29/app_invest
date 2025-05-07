@@ -14,15 +14,8 @@ const authenticateToken = require('./middlewares/authenticateToken');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger');
 
-// Configuração do CORS
-const corsOptions = {
-  origin: '*', // Permite todas as origens (pode ser alterado para domínios específicos)
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Permite apenas métodos específicos (opcional)
-  allowedHeaders: ['Content-Type', 'Authorization'], // Permite apenas esses cabeçalhos (opcional)
-};
-
-// Use o CORS antes de definir as rotas
-app.use(cors(corsOptions));
+// Configuração do CORS para permitir tudo
+app.use(cors());  // Permite todas as origens, métodos e cabeçalhos por padrão
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.get('/swagger.json', (req, res) => {
