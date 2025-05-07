@@ -84,16 +84,17 @@ A documentação da API está disponível através do Swagger. Para acessá-la, 
 
 Aqui você pode visualizar todas as rotas da API, bem como detalhes sobre cada uma delas.
 
-## Testes Automatizados
-
-Para utilizar os testes automatizados, primeiro vá em .env e no NODE_ENV coloque o valor dele como test
-
-Em sequência utilize no terminal: npm test
 
 ## Vídeo de Apresentação
 
 Link:
 https://drive.google.com/file/d/1ihJjj5oGIbr-28zY4na2BQe_Ee_SsB9h/view?usp=sharing
+
+## Testes Automatizados
+
+Para utilizar os testes automatizados, primeiro vá em .env e no NODE_ENV coloque o valor dele como test
+
+Em sequência utilize no terminal: npm test
 
 Quando quiser parar de utilizar testes unitários, apenas retire o test
 
