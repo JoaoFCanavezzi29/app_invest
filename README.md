@@ -90,6 +90,11 @@ Para utilizar os testes automatizados, primeiro vá em .env e no NODE_ENV coloqu
 
 Em sequência utilize no terminal: npm test
 
+## Vídeo de Apresentação
+
+Link:
+https://drive.google.com/file/d/1ihJjj5oGIbr-28zY4na2BQe_Ee_SsB9h/view?usp=sharing
+
 Quando quiser parar de utilizar testes unitários, apenas retire o test
 
 Caso execute os testes mais de uma vez, ele lhe barrará por conta que tem uma limitação de vezes que pode executar uma compra/ou venda no asset.test.js
